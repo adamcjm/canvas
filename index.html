@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('tutorial');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+                // 绘制一个填充的矩形: fillRect(x, y, width, height)
+                ctx.fillStyle = 'rgb(200,0,0)';
+                ctx.fillRect(10, 10, 55, 50);
+
+                ctx.fillStyle = 'rgba(0,0,200,0.5)';
+                ctx.fillRect(30, 30, 55, 50);
+                // 清除指定矩形区域，让清除部分完全透明: clearRect(x, y, width, height)
+                ctx.clearRect(20, 20, 30, 30)
+                // 绘制一个矩形的边框： strokeRect(x, y, width, height)
+                ctx.strokeRect(60, 60, 50, 50);
+
+                // 练习例子
+                ctx.fillStyle = 'rgb(0,0,0)';
+                ctx.fillRect(200,30,70,70);
+                ctx.clearRect(210,40,50,50);
+                ctx.strokeRect(220,50,30,30);
+
+                // 通过路径绘制三角形
+                ctx.fillStyle = '#900'
+                ctx.beginPath();
+                ctx.moveTo(300, 50);
+                ctx.lineTo(300, 150);
+                ctx.lineTo(360, 100);
+                ctx.fill();
+                
+                // 笑脸
+                ctx.fillStyle = '#000';
+                ctx.beginPath();
+                ctx.arc(500, 100, 80, Math.PI / 180 * 0, Math.PI / 180 * 30);
+                
+                
+                
+
+            } else {
+                alert('您的浏览器不支持canvas！');
+            }
+        }
+    </script>
+    <style>
+        #tutorial {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body onload="draw();">
+    <canvas id="tutorial" width="600" height="600"></canvas>
+</body>
+
+</html>
